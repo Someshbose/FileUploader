@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.3.5.BUILD-SNAPSHOT</version>
+		<version>2.3.12.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>somesh.github.io</groupId>
@@ -127,15 +127,16 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>3.1.2</version>
-				<configuration>
-					<finalName>${project.artifactId}-${version.number}</finalName>
-					<archive>
-						<manifestEntries>
-							<Implementation-Version>${version.number}</Implementation-Version>
-						</manifestEntries>
-					</archive>
-				</configuration>
+<!--				<configuration>-->
+<!--					<finalName>${project.artifactId}-${version.number}</finalName>-->
+<!--					<archive>-->
+<!--						<manifestEntries>-->
+<!--							<Implementation-Version>${version.number}</Implementation-Version>-->
+<!--						</manifestEntries>-->
+<!--					</archive>-->
+<!--				</configuration>-->
 			</plugin>
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -147,6 +148,7 @@
 					</execution>
 				</executions>
 			</plugin>
+
 			<plugin>
 	            <groupId>org.apache.maven.plugins</groupId>
 	            <artifactId>maven-checkstyle-plugin</artifactId>
@@ -165,8 +167,8 @@
 						</goals>
 	            	</execution>
 	            </executions>
-	            
 	        </plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
@@ -190,52 +192,16 @@
 					</execution>
 				</executions>
 			</plugin>
+
 			<plugin>
 	         <groupId>com.spotify</groupId>
 	         <artifactId>dockerfile-maven-plugin</artifactId>
 	         <version>1.4.10</version>
-	         
 	         <configuration>
 	            <repository>${docker.image.prefix}/${project.artifactId}</repository>
 	         </configuration>
 	      </plugin>
 		</plugins>
 	</build>
-
-	<repositories>
-		<repository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-		</repository>
-		<repository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>cetral</id>
-			<name>Maven repos</name>
-			<url>https://repo.maven.apache.org/maven2</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</pluginRepository> 
-	</pluginRepositories>
 
 </project>
